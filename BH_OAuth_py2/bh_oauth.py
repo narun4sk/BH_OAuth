@@ -1,7 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-BSD 3-Clause License:
+BSD 3-Clause License::
+--------------------
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -30,21 +31,27 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Copyright (c) 2016 Narunas K. All rights reserved.
 
-# BH_OAuth
-bullhorn.com REST API Python Client
+BH_OAuth
+========
+bullhorn.com REST API Client
+----------------------------
 
 *Dependencies*:
 
-- [requests](http://docs.python-requests.org/en/master/user/install/#install)
+- `requests`_ - HTTP for Humans
 
-*Quick Example*
+*Quick Example*::
 
-    client = "Bullhorn OAuth Client ID"
-    secret = 'Bullhorn OAuth Client Secret'
-    username = "Bullhorn Username"
-    password = "Bullhorn Password"
+    auth = dict(
+        client = "Bullhorn OAuth Client ID",
+        secret = 'Bullhorn OAuth Client Secret',
+        username = "Bullhorn Username",
+        password = "Bullhorn Password")
 
-    bhr = BHRest(client=client, secret=secret, usr=username, pwd=password)
+    bhr = BHRest(**auth)
+    bhr._auth_url = "https://auth9.bullhornstaffing.com/oauth"
+    bhr._rest_url = "https://rest9.bullhornstaffing.com/rest-services"
+
     print bhr.access_token
     print bhr.find(query="+12345678")
 
@@ -52,6 +59,8 @@ bullhorn.com REST API Python Client
 
 - Automatically refresh `rest_token/url` if `access_token` has expired.
 - Search the following entity types given a string containing search terms.
+
+.. _requests: http://docs.python-requests.org/en/master/user/install/#install
 
 """
 
@@ -61,8 +70,8 @@ from datetime import datetime, timedelta
 import requests
 
 # Bullhorn Base URLs
-AUTH_URL = "https://auth9.bullhornstaffing.com/oauth"
-REST_URL = "https://rest9.bullhornstaffing.com/rest-services"
+AUTH_URL = "https://auth.bullhornstaffing.com/oauth"
+REST_URL = "https://rest.bullhornstaffing.com/rest-services"
 
 
 class BHAuth(object):
@@ -273,11 +282,15 @@ class BHRest(BHAuth):
 
 
 if __name__ == "__main__":
-    client = "Bullhorn OAuth Client ID"
-    secret = 'Bullhorn OAuth Client Secret'
-    username = "Bullhorn Username"
-    password = "Bullhorn Password"
+    auth = dict(
+        client = "Bullhorn OAuth Client ID",
+        secret = 'Bullhorn OAuth Client Secret',
+        username = "Bullhorn Username",
+        password = "Bullhorn Password")
 
-    bhr = BHRest(client=client, secret=secret, usr=username, pwd=password)
+    bhr = BHRest(**auth)
+    bhr._auth_url = "https://auth9.bullhornstaffing.com/oauth"
+    bhr._rest_url = "https://rest9.bullhornstaffing.com/rest-services"
+
     print bhr.access_token
     print bhr.find(query="+12345678")

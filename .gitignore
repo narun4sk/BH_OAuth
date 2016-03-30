@@ -1,0 +1,9 @@
+# Compiled source #
+###################
+*.pyc
+MANIFEST
+dist/
+
+
+# Log Files #
+#############
