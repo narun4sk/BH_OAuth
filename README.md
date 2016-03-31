@@ -1,13 +1,23 @@
-BH_OAuth
-========
-bullhorn.com REST API Python Client
------------------------------------
+## bullhorn.com REST API Python Client
+
+----
+
+*Install*:
+
+    # pip install -U bh_oauth
 
 *Dependencies*:
 
-- `requests`_ - HTTP for Humans
+- [requests][requests] - HTTP for Humans
 
-*Quick Example*::
+*Features*:
+
+- Automatically refresh `rest_token` / `url` if `access_token` has expired.
+- Search the following entity types given a string containing search terms.
+
+*Quick Example*:
+
+    from bh_oauth import BHRest
 
     auth = dict(
         client = "Bullhorn OAuth Client ID",
@@ -22,9 +32,4 @@ bullhorn.com REST API Python Client
     print bhr.access_token
     print bhr.find(query="+12345678")
 
-*Features*:
-
-- Automatically refresh `rest_token/url` if `access_token` has expired.
-- Search the following entity types given a string containing search terms.
-
-.. _requests: http://docs.python-requests.org/en/master/user/install/#install
+  [requests]: "http://docs.python-requests.org/en/master/user/install/#install" "HTTP for Humans"
