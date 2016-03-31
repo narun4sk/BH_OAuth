@@ -30,4 +30,4 @@
     print bhr.access_token
     print bhr.find(query="+12345678")
 
-  [requests]: "http://docs.python-requests.org/en/master/user/install/#install" "HTTP for Humans"
+[requests]: http://docs.python-requests.org/en/master/user/install/#install "HTTP for Humans"
