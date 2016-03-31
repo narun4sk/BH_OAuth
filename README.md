@@ -1,7 +1,5 @@
 ## bullhorn.com REST API Python Client
 
-----
-
 *Install*:
 
     # pip install -U bh_oauth
