@@ -12,8 +12,8 @@ bullhorn.com REST API Python Client
     auth = dict(
         client = "Bullhorn OAuth Client ID",
         secret = 'Bullhorn OAuth Client Secret',
-        username = "Bullhorn Username",
-        password = "Bullhorn Password")
+        usr = "Bullhorn Username",
+        pwd = "Bullhorn Password")
 
     bhr = BHRest(**auth)
     bhr._auth_url = "https://auth9.bullhornstaffing.com/oauth"

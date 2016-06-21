@@ -11,7 +11,14 @@
 *Features*:
 
 - Automatically refresh `rest_token` / `url` if `access_token` has expired.
-- Search the following entity types given a string containing search terms.
+- Search the following entity types given a string containing search terms:
+  - ClientContact
+  - JobOrder
+  - Candidate
+  - ClientCorporation
+  - Lead (if leadsAndOpportunitiesEnabled = true)
+  - Opportunity (if leadsAndOpportunitiesEnabled = true)
+  - To search through the phone numbers start query with the "+" and append last 8 digits.
 
 *Quick Example*:
 
@@ -20,8 +27,8 @@
     auth = dict(
         client = "Bullhorn OAuth Client ID",
         secret = 'Bullhorn OAuth Client Secret',
-        username = "Bullhorn Username",
-        password = "Bullhorn Password")
+        usr = "Bullhorn Username",
+        pwd = "Bullhorn Password")
 
     bhr = BHRest(**auth)
     bhr._auth_url = "https://auth9.bullhornstaffing.com/oauth"
