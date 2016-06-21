@@ -31,6 +31,7 @@
         pwd = "Bullhorn Password")
 
     bhr = BHRest(**auth)
+    # If in the sandbox environment - update URLs
     bhr._auth_url = "https://auth9.bullhornstaffing.com/oauth"
     bhr._rest_url = "https://rest9.bullhornstaffing.com/rest-services"
 
