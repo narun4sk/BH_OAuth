@@ -64,7 +64,7 @@ bullhorn.com REST API Client
 
 """
 
-import urllib.parse
+import urlparse
 from datetime import datetime, timedelta
 
 import requests
@@ -156,7 +156,7 @@ class BHAuth(object):
         req = requests.get(url, params=params)
         response_url = req.url
         response_query = requests.utils.urlparse(response_url).query
-        query_dict = urllib.parse.parse_qs(response_query)
+        query_dict = urlparse.parse_qs(response_query)
         if query_dict.get("code"):
             self._auth_code = query_dict["code"][0]
         else:
@@ -182,7 +182,7 @@ class BHAuth(object):
         try:
             response_dict = req.json()
         except Exception as err:
-            print(err)
+            print err
             response_dict = {}
             self.refresh = False
         if 'expires_in' in response_dict:
@@ -249,7 +249,7 @@ class BHRest(BHAuth):
         try:
             response_dict = req.json()
         except Exception as err:
-            print(err)
+            print err
             self._rest_login = {}
         self._rest_login = response_dict
         return self._rest_login
@@ -276,7 +276,7 @@ class BHRest(BHAuth):
         try:
             response_dict = req.json()
         except Exception as err:
-            print(err)
+            print err
             response_dict = {}
         return response_dict.get("data")
 
@@ -292,5 +292,5 @@ if __name__ == "__main__":
     bhr._auth_url = "https://auth9.bullhornstaffing.com/oauth"
     bhr._rest_url = "https://rest9.bullhornstaffing.com/rest-services"
 
-    print(bhr.access_token)
-    print(bhr.find(query="+12345678"))
+    print bhr.access_token
+    print bhr.find(query="+12345678")
